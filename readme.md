@@ -16,10 +16,10 @@ Co-salient Object Detection (CoSOD) endeavors to replicate the human visual syst
 
 The predicted results of our model trained by COCO9k only is available at [google-drive](https://drive.google.com/file/d/1YWxLQhe26bvFXfXzXIFw19mx69ESs1Lq/view?usp=sharing) | [BaiduYun](https://pan.baidu.com/s/19sDWXHk0D04IlNdeGhdKDw) (fetch code: 7lmh)
 + quantitative results
-<div align=center><img width="800" height="280" src=./assets/quantitative.png/></div>
+<div align=center><img width="800" height="220" src=./assets/quantitative.png/></div>
 
 + qualitative results
-<div align=center><img width="800" height="500" src=./assets/qualitative.png/></div>
+<div align=center><img width="800" height="400" src=./assets/qualitative.png/></div>
 
 ## **Usage**
 1. **Environment**
@@ -69,17 +69,23 @@ The predicted results of our model trained by COCO9k only is available at [googl
  
  ## Citation
   ```
-  @ARTICLE{10008072,
-  author={Zhu, Ziyue and Zhang, Zhao and Lin, Zheng and Sun, Xing and Cheng, Ming-Ming},
-  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
-  title={Co-Salient Object Detection with Co-Representation Purification}, 
-  year={2023},
-  volume={},
-  number={},
-  pages={1-12},
-  doi={10.1109/TPAMI.2023.3234586}}
+
+
+   @article{DBLP:journals/corr/abs-2309-05499,
+   author       = {Haoke Xiao and
+                     Lv Tang and
+                     Bo Li and
+                     Zhiming Luo and
+                     Shaozi Li},
+   title        = {Zero-Shot Co-salient Object Detection Framework},
+   journal      = {CoRR},
+   volume       = {abs/2309.05499},
+   year         = {2023}
+   }
+
+
   ```
  
  ## Contact
    
-Feel free to leave issues here or send me e-mails (zhuziyue@mail.nankai.edu.cn).
+Feel free to leave issues here or send me e-mails (hk.xiao.me@gmail.com).
