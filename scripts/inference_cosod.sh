@@ -1,0 +1,1 @@
+python main.py --save_root 'save/pred_iter50' --datasets CoSal2015 --kiter 50 --gpu 2
