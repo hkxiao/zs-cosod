@@ -2,7 +2,7 @@
 
 This repository is the official PyTorch implementation of our zero-shot cosod framework. [[**arXiv**](https://arxiv.org/abs/2309.05499)]
 
-<div align=center><img width="550" height="230" src=assets/intro.png/></div>
+<div align=center><img width="550" height="190" src=assets/intro.png/></div>
 
 ## **Abstract**
 
@@ -69,8 +69,6 @@ The predicted results of our model trained by COCO9k only is available at [googl
  
  ## Citation
   ```
-
-
    @article{DBLP:journals/corr/abs-2309-05499,
    author       = {Haoke Xiao and
                      Lv Tang and
@@ -82,8 +80,6 @@ The predicted results of our model trained by COCO9k only is available at [googl
    volume       = {abs/2309.05499},
    year         = {2023}
    }
-
-
   ```
  
  ## Contact
