@@ -38,17 +38,18 @@ The predicted results of our model trained by COCO9k only is available at [googl
     |   +-- data 
     |       +-- CoSal2015 (Testing Dataset)
     |           +-- img (Image Groups)  
-    |           +-- gt (Ground Truth Groups)    
+    |           +-- gt (Ground Truth Groups)
+    |           +-- blip2-caption (Image Caption)
     |       +-- CoCA (Testing Dataset)  
     |       +-- CoSOD3k (Testing Dataset)   
     |   ... 
     ```
  3. **Test and evalutation**
  
-       Download the ckeckpoints of PoolNet and SAM from [google-drive](https://drive.google.com/file/d/1viHjcuH0Ski67_zkgsQxAEhKL0Yf8Av8/view?usp=sharing) | [BaiduYun](https://pan.baidu.com/s/1YkWOjFNbtPjZs0VhROpZTA) (fetch code: utef). Place the **ckpt** folder in the main directory. Here is a command example of testing our model (test CoSal2015 with vit-base backbone).
+       Download the ckeckpoints of TSDN and SAM from [google-drive](https://drive.google.com/file/d/1viHjcuH0Ski67_zkgsQxAEhKL0Yf8Av8/view?usp=sharing) | [BaiduYun](https://pan.baidu.com/s/1YkWOjFNbtPjZs0VhROpZTA) (fetch code: utef). Place the **ckpt** folder in the main directory. Here is a command example of testing our model (test CoSal2015 with vit-base backbone).
     ```
-    1. sh sd-dino/extract_feat.sh (Feature Extraction by Stable-1.5 and DINOv2-base)
-    2. sh PoolNet/inference_sod.sh (Saliency Map Generation by Unsupervised PoolNet)
+    1. sh sd-dino/extract_feat.sh (Feature Extraction by StableDiffusion-1.5 and DINOv2-base)
+    2. sh TSDN/inference_sod.sh (Saliency Map Generation by Unsupervised TSDN)
     3. sh inference_cosod.sh (CoSaliency Map Generation) 
     ```
     
@@ -56,7 +57,6 @@ The predicted results of our model trained by COCO9k only is available at [googl
     
     ```
     CUDA_VISIBLE_DEVICES=0 python evaluate.py --pred_root results --datasets CoSal2015
-
     ```
     For more metrics, CoSOD evaluation toolbox [eval-co-sod](https://github.com/zzhanghub/eval-co-sod) is strongly recommended.
     
@@ -76,6 +76,10 @@ The predicted results of our model trained by COCO9k only is available at [googl
    }
   ```
  
+## Acknowledgement
+
+Our code is largely based on the following open-source projects: [ODISE](https://github.com/NVlabs/ODISE), [dino-vit-features (official implementation)](https://github.com/ShirAmir/dino-vit-features), [dino-vit-features (Kamal Gupta's implementation)](https://github.com/kampta/dino-vit-features), [SAM](https://github.com/facebookresearch/segment-anything), and [TSDN](https://github.com/moothes/A2S-v2). Our heartfelt gratitude goes to the developers of these resources!
+
  ## Contact
    
 Feel free to leave issues here or send me e-mails (hk.xiao.me@gmail.com).
