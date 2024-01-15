@@ -1,0 +1,1 @@
+python main.py --save_root 'results' --datasets CoSal2015 --kiter 50 --gpu 0
