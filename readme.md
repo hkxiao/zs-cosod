@@ -25,47 +25,41 @@ The predicted results of our model trained by COCO9k only is available at [googl
 1. **Environment**
 
     ```
-    Python==3.8.5
-    opencv-python==4.5.3.56
-    torch==1.9.0
+   conda create -n zscosod python=3.9
+   conda activate zscosod 
+   pip install -e .
     ```
 
 2. **Datasets preparation**
 
-    Download all the train/test datasets from my [google-drive](https://drive.google.com/file/d/1xD9BfxFnBl6vw0X97GXqLd8yBVR1tc3S/view?usp=sharing) and [google-drive](https://drive.google.com/file/d/1LAPmlWhnND9tBO3n_RaW2_ZIY0Jy1BGJ/view?usp=sharing), or [BaiduYun](https://pan.baidu.com/s/1npN6__inOd6uwKwza2TdZQ) (fetch code: s5m4). The file directory structure is as follows:
+    Download all the test datasets from my [google-drive](https://drive.google.com/file/d/1xD9BfxFnBl6vw0X97GXqLd8yBVR1tc3S/view?usp=sharing) and [google-drive](https://drive.google.com/file/d/1LAPmlWhnND9tBO3n_RaW2_ZIY0Jy1BGJ/view?usp=sharing), or [BaiduYun](https://pan.baidu.com/s/1npN6__inOd6uwKwza2TdZQ) (fetch code: s5m4). The file directory structure is as follows:
     ```
-    +-- CoRP
-    |   +-- Dataset
-    |       +-- COCO9213  (Training Dataset for co-saliency branch)
-    |       +-- Jigsaw_DUTS (Training Dataset for co-saliency branch)   
-    |       +-- DUTS-TR (Training Dataset for saliency head)   
-    |       +-- COCOSAL (Training Dataset for saliency head)  
-    |       +-- CoSal2015 (Testing Dataset)   
+    +-- zs-cosod
+    |   +-- data 
+    |       +-- CoSal2015 (Testing Dataset)
+    |           +-- img (Image Groups)  
+    |           +-- gt (Ground Truth Groups)    
     |       +-- CoCA (Testing Dataset)  
     |       +-- CoSOD3k (Testing Dataset)   
-    |   +-- ckpt (The root for saving your checkpoint)
     |   ... 
     ```
  3. **Test and evalutation**
  
-       Download the ckeckpoints of our model from [google-drive](https://drive.google.com/file/d/1viHjcuH0Ski67_zkgsQxAEhKL0Yf8Av8/view?usp=sharing) | [BaiduYun](https://pan.baidu.com/s/1YkWOjFNbtPjZs0VhROpZTA) (fetch code: utef). Place the **ckpt** folder in the main directory. Here is a command example of testing our model (trained by COCO9k with vgg16 backbone).
+       Download the ckeckpoints of PoolNet and SAM from [google-drive](https://drive.google.com/file/d/1viHjcuH0Ski67_zkgsQxAEhKL0Yf8Av8/view?usp=sharing) | [BaiduYun](https://pan.baidu.com/s/1YkWOjFNbtPjZs0VhROpZTA) (fetch code: utef). Place the **ckpt** folder in the main directory. Here is a command example of testing our model (test CoSal2015 with vit-base backbone).
     ```
-    CUDA_VISIBLE_DEVICES=0 python test.py --backbone vgg16 --ckpt_path './ckpt/vgg16_COCO9k/checkpoint.pth' --pred_root './Predictions/pred_vgg_coco/pred' 
+    1. sh sd-dino/extract_feat.sh (Feature Extraction by Stable-1.5 and DINOv2-base)
+    2. sh PoolNet/inference_sod.sh (Saliency Map Generation by Unsupervised PoolNet)
+    3. sh inference_cosod.sh (CoSaliency Map Generation) 
     ```
     
     Run the following command to evaluate your prediction results，the metrics include **max F-measure**, **S-measure**, and **MAE**.
     
     ```
-    CUDA_VISIBLE_DEVICES=0 python evaluate.py --pred_root './Predictions/pred_vgg_coco/pred'
+    CUDA_VISIBLE_DEVICES=0 python evaluate.py --pred_root results --datasets CoSal2015
+
     ```
     For more metrics, CoSOD evaluation toolbox [eval-co-sod](https://github.com/zzhanghub/eval-co-sod) is strongly recommended.
     
- 4. **Train your own model**
-
-    Our CoRP can be trained with various backbones and training datasets.  
-    ```
-    CUDA_VISIBLE_DEVICES=0 python train.py --backbone <vgg16 or resnet50> --cosal_set <COCO9k or DUTS>  --sal_set <COCO9k or DUTS> --ckpt_root <Path for saving your checkpoint>
-    ```
  
  ## Citation
   ```
