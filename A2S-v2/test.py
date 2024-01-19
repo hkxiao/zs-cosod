@@ -24,7 +24,7 @@ def test_model(model, test_sets, config, epoch=None, saver=None):
     
     st = time.time()
     for set_name, test_set in test_sets.items():
-        save_folder = os.path.join(config['save_path'], set_name, 'ssim')
+        save_folder = os.path.join(config['save_path'], set_name, 'sism')
         check_path(save_folder)
         
         print(save_folder)
