@@ -40,6 +40,7 @@ def evaluate(roots, doc_path, num_thread, pin):
         content += ' '
         content += 'MAE={}\n'.format(results['mae'])
         write_doc(doc_path, content)
+        print(content)
     content = '\n'
     write_doc(doc_path, content)
 
@@ -67,8 +68,8 @@ def main():
     eval_roots = dict()
     for dataset in args.datasets:
         import os
-        print(dataset,len(os.listdir( '../data/cosod_data/{}/gt/'.format(dataset))),len(os.listdir(args.pred_root + '/{}/'.format(dataset))))
-        roots = {'gt': '../data/cosod_data/{}/gt/'.format(dataset),
+        print(dataset,len(os.listdir( 'data/{}/gt/'.format(dataset))),len(os.listdir(args.pred_root + '/{}/'.format(dataset))))
+        roots = {'gt': 'data/{}/gt/'.format(dataset),
                  'pred': args.pred_root + '/{}/'.format(dataset)}
         eval_roots[dataset] = roots
     eval_num_thread = args.eval_num_thread

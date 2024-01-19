@@ -1,1 +1,1 @@
-CUDA_VISIBLE_DEVICES=1 python evaluate.py --pred_root '/data/tanglv/zsl_cosod/save/pred_iter50' --datasets CoSal2015
+CUDA_VISIBLE_DEVICES=0 python evaluate.py --pred_root results --datasets CoSal2015
