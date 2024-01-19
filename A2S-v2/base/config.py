@@ -48,7 +48,7 @@ def base_config(cfg_dict):
     parser.add_argument('--save_path', default='./result/', help='Save path of network')
     parser.add_argument('--crf', action='store_true')
     parser.add_argument('--olr', action='store_true')
-    
+    parser.add_argument('--datasets', nargs='+')
     return parser
     
 def cfg_convert(config):
@@ -62,9 +62,9 @@ def cfg_convert(config):
         step_sizes = config['step_size'].split(',')
         config['step_size'] = [int(ss) for ss in step_sizes]
 
-    save_path = os.path.join(config['save_path'], config['model_name'], config['backbone'], config['sub'])
-    check_path(save_path)
-    config['save_path'] = save_path
+    # save_path = os.path.join(config['save_path'], config['model_name'], config['backbone'], config['sub'])
+    # check_path(save_path)
+    # config['save_path'] = save_path
     
     weight_path = os.path.join(config['weight_path'], config['model_name'], config['backbone'], config['trset'], config['sub'])
     check_path(weight_path)

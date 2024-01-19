@@ -36,20 +36,20 @@ def get_color_list(name, config, phase):
     name_list = []
     
     
-    image_root = os.path.join(config['data_path'], name, 'refimg15')
+    image_root = os.path.join(config['data_path'], name, 'img')
     
-    # img_list = []
-    # for group in os.listdir(image_root):
-    #     if group.startswith('.'): continue
-    #     try:
-    #         sub_list = os.listdir(image_root+'/'+group)
-    #     except NotADirectoryError:
-    #          img_list = os.listdir(image_root)
-    #          break
-    #     sub_list = [group+'/'+x for x in sub_list]
-    #     img_list.extend(sub_list)
+    img_list = []
+    for group in os.listdir(image_root):
+        if group.startswith('.'): continue
+        try:
+            sub_list = os.listdir(image_root+'/'+group)
+        except NotADirectoryError:
+             img_list = os.listdir(image_root)
+             break
+        sub_list = [group+'/'+x for x in sub_list]
+        img_list.extend(sub_list)
     
-    img_list = os.listdir(image_root) 
+    # img_list = os.listdir(image_root) 
     img_list = [x for x in img_list if 'jpg' in x]
     
     # print(img_list)
@@ -190,7 +190,7 @@ def get_test_list(modes='cr', config=None):
         modal, subset = mode
         if subset == 'e':
             if modal == 'c':
-                test_list = ['VOC2012'] # , 'SOD'
+                test_list = config['datasets'] # , 'SOD'
             elif modal == 'd':
                 #test_list = ['DUT', 'LFSD', 'NJUD', 'NLPR', 'RGBD135', 'SIP', 'SSD', 'STERE1000']
                 test_list = ['NJUD', 'NLPR', 'RGBD135', 'SIP']
@@ -200,7 +200,8 @@ def get_test_list(modes='cr', config=None):
                 test_list = ['VT5000-TE', 'VT1000', 'VT821']
                     
             for test_set in test_list:
-                set_name = '_'.join((modal, test_set))
+                #set_name = '_'.join((modal, test_set))
+                set_name = test_set
                 test_dataset[set_name] = Test_Dataset(test_set, modal, config)
         else:
             if modal == 'c':

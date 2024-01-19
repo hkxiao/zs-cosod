@@ -24,8 +24,13 @@ def test_model(model, test_sets, config, epoch=None, saver=None):
     
     st = time.time()
     for set_name, test_set in test_sets.items():
-        save_folder = os.path.join(config['save_path'], set_name)
+        save_folder = os.path.join(config['save_path'], set_name, 'ssim')
         check_path(save_folder)
+        
+        print(save_folder)
+        
+        # print(save_folder, config['save_path'], set_name)
+        #raise NameError
         
         titer = test_set.size
         MR = MetricRecorder(titer)
@@ -96,7 +101,8 @@ def test_model(model, test_sets, config, epoch=None, saver=None):
                         tag = 'crf'
                     else:
                         tag = 'final'
-                    fnl_folder = os.path.join(save_folder, tag)
+                    #fnl_folder = os.path.join(save_folder, tag)
+                    fnl_folder = os.path.join(save_folder)
                 check_path(fnl_folder)
                 #print(name)
                 

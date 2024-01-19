@@ -1,1 +1,1 @@
-python3 test.py cornet --gpus=7 --weight=cornet_rgb_duts_tr.pth  --vals=ce --save
+python3 test.py cornet --gpus=0 --weight=../ckpt/cornet_rgb_duts_tr.pth  --vals=ce --save --data_path=../data --datasets=CoSal2015 --save_path=../data
