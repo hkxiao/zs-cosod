@@ -28,7 +28,7 @@ Co-salient Object Detection (CoSOD) endeavors to replicate the human visual syst
    conda create -n zscosod python=3.9
    conda activate zscosod 
    pip install -e .
-   pip install -r requirements
+   pip install -r requirements.txt
     ```
 
 2. **Datasets preparation**
