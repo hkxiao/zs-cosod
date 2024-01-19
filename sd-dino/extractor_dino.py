@@ -65,7 +65,8 @@ class ViTExtractor:
         """
         torch.hub._validate_not_a_forked_repo=lambda a,b,c: True
         if 'v2' in model_type:
-            model = torch.hub.load('/home/tanglv/.cache/torch/hub/facebookresearch_dinov2_main', model_type,source='local')
+            #model = torch.hub.load('/home/tanglv/.cache/torch/hub/facebookresearch_dinov2_main', model_type,source='local')
+            model = torch.hub.load('facebookresearch/dinov2', model_type)
         elif 'dino' in model_type:
             model = torch.hub.load('facebookresearch/dino:main', model_type)
         else:  # model from timm -- load weights from timm to dino model (enables working on arbitrary size images).
