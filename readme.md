@@ -2,7 +2,7 @@
 
 This repository is the official PyTorch implementation of our zero-shot cosod framework. [[**arXiv**](https://arxiv.org/abs/2309.05499)]
 
-<div align=center><img width="550" height="190" src=assets/intro.png/></div>
+<div align=center><img width="550" height="190" src=assets/intro.PNG/></div>
 
 ## **Abstract**
 
@@ -10,16 +10,16 @@ Co-salient Object Detection (CoSOD) endeavors to replicate the human visual syst
 
 ## **Framework Overview**
 
-<div align=center><img width="750" height="330" src=assets/framework.png/></div>
+<div align=center><img width="750" height="330" src=assets/framework.PNG/></div>
 
 ## **Results**
 
-The predicted results of our model trained by COCO9k only is available at [google-drive](https://drive.google.com/file/d/1YWxLQhe26bvFXfXzXIFw19mx69ESs1Lq/view?usp=sharing) | [BaiduYun](https://pan.baidu.com/s/19sDWXHk0D04IlNdeGhdKDw) (fetch code: 7lmh)
+<!-- The predicted results of our model trained by COCO9k only is available at [google-drive](https://drive.google.com/file/d/1YWxLQhe26bvFXfXzXIFw19mx69ESs1Lq/view?usp=sharing) | [BaiduYun](https://pan.baidu.com/s/19sDWXHk0D04IlNdeGhdKDw) (fetch code: 7lmh) -->
 + quantitative results
-<div align=center><img width="800" height="220" src=./assets/quantitative.png/></div>
+<div align=center><img width="800" height="220" src=./assets/quantitative.PNG/></div>
 
 + qualitative results
-<div align=center><img width="800" height="400" src=./assets/qualitative.png/></div>
+<div align=center><img width="800" height="400" src=./assets/qualitative.PNG/></div>
 
 ## **Usage**
 1. **Environment**
@@ -32,7 +32,7 @@ The predicted results of our model trained by COCO9k only is available at [googl
 
 2. **Datasets preparation**
 
-    Download all the test datasets from my [google-drive](https://drive.google.com/file/d/1xD9BfxFnBl6vw0X97GXqLd8yBVR1tc3S/view?usp=sharing) and [google-drive](https://drive.google.com/file/d/1LAPmlWhnND9tBO3n_RaW2_ZIY0Jy1BGJ/view?usp=sharing), or [BaiduYun](https://pan.baidu.com/s/1npN6__inOd6uwKwza2TdZQ) (fetch code: s5m4). The file directory structure is as follows:
+    Download all the test datasets from my [google-drive](https://drive.google.com/file/d/1knhq7KYhaX-fLH7VYrfJhjoKiBnK3KAM/view?usp=drive_link) or [BaiduYun](https://pan.baidu.com/s/19NLkiRQz3BPrUrk7M1dfZw) (fetch code: qwt8). The file directory structure is as follows:
     ```
     +-- zs-cosod
     |   +-- data 
@@ -46,7 +46,7 @@ The predicted results of our model trained by COCO9k only is available at [googl
     ```
  3. **Test and evalutation**
  
-       Download the ckeckpoints of TSDN and SAM from [google-drive](https://drive.google.com/file/d/1viHjcuH0Ski67_zkgsQxAEhKL0Yf8Av8/view?usp=sharing) | [BaiduYun](https://pan.baidu.com/s/1YkWOjFNbtPjZs0VhROpZTA) (fetch code: utef). Place the **ckpt** folder in the main directory. Here is a command example of testing our model (test CoSal2015 with vit-base backbone).
+       Download the ckeckpoints of TSDN and SAM from [google-drive](https://drive.google.com/file/d/1YsvhQtqQyfjf-OMsA36uPefc2qAZnHxV/view?usp=drive_link) | [BaiduYun](https://pan.baidu.com/s/1mp8byGsBb3MpFdap-JEIig) (fetch code: be34). Place the **ckpt** folder in the main directory. Here is a command example of testing our model (test CoSal2015 with vit-base backbone).
     ```
     1. sh sd-dino/extract_feat.sh (Feature Extraction by StableDiffusion-1.5 and DINOv2-base)
     2. sh TSDN/inference_sod.sh (Saliency Map Generation by Unsupervised TSDN)
