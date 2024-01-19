@@ -28,6 +28,7 @@ Co-salient Object Detection (CoSOD) endeavors to replicate the human visual syst
    conda create -n zscosod python=3.9
    conda activate zscosod 
    pip install -e .
+   pip install -r requirements
     ```
 
 2. **Datasets preparation**
@@ -49,7 +50,7 @@ Co-salient Object Detection (CoSOD) endeavors to replicate the human visual syst
        Download the ckeckpoints of TSDN and SAM from [google-drive](https://drive.google.com/file/d/1YsvhQtqQyfjf-OMsA36uPefc2qAZnHxV/view?usp=drive_link) | [BaiduYun](https://pan.baidu.com/s/1mp8byGsBb3MpFdap-JEIig) (fetch code: be34). Place the **ckpt** folder in the main directory. Here is a command example of testing our model (test CoSal2015 with vit-base backbone).
     ```
     1. sh sd-dino/extract_feat.sh (Feature Extraction by StableDiffusion-1.5 and DINOv2-base)
-    2. sh TSDN/inference_sod.sh (Saliency Map Generation by Unsupervised TSDN)
+    2. sh A2S-v2/inference_sod.sh (Saliency Map Generation by Unsupervised TSDN)
     3. sh inference_cosod.sh (CoSaliency Map Generation) 
     ```
     
