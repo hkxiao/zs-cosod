@@ -73,9 +73,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--datasets",type=str,nargs='+',default=['CoCA', 'CoSal2015', 'CoSOD3k'])
     parser.add_argument("--sam_type",type=str,default='vit_b')
-    parser.add_argument("--sam_checkpoint",type=str,default='pretrained_checkpoint/sam_vit_b_01ec64.pth')
+    parser.add_argument("--sam_checkpoint",type=str,default='ckpt/sam_vit_b_01ec64.pth')
     parser.add_argument("--batch",type=int,default=10)
-    parser.add_argument("--data_root",type=str,default='../data/cosod_data/')
+    parser.add_argument("--data_root",type=str,default='data/')
     parser.add_argument("--save_root",type=str,default='pred/')
     parser.add_argument("--sod_root",type=str,default='PoolNet/results/')
     parser.add_argument("--gpu",type=int,default=1)
@@ -102,7 +102,7 @@ if __name__ == '__main__':
             save_group_path = os.path.join(args.save_root,dataset,group)
             mkdir(save_group_path)
                 
-            feat_path = os.path.join(dataset_path, 'sd_cp+dino_feat', group)
+            feat_path = os.path.join(dataset_path, 'sd_raw+dino_feat', group)
             files = sorted(os.listdir(feat_path))
             features, sisms = [], []
             
@@ -112,8 +112,10 @@ if __name__ == '__main__':
                 feature = process_feat(sd_feat,dino_feat)
                 features.append(feature)
 
-                sism = cv2.imread(args.sod_root+'/'+dataset+'/'+group+'/'+file[:-4]+'.jpg').astype(np.float32)
+                # print(args.sod_root+'/'+dataset+'/'+group+'/'+file[:-4]+'.png')
+                sism = cv2.imread(args.data_root+'/'+dataset+'/sism/'+group+'/'+file[:-4]+'.png').astype(np.float32)
                 sism = cv2.cvtColor(sism, cv2.COLOR_BGR2GRAY)
+                sism = cv2.resize(sism, (60,60))
                 sism_torch = torch.from_numpy(sism).cuda() 
                 sisms.append(sism_torch.unsqueeze(0).unsqueeze(0))
                 
@@ -143,7 +145,7 @@ if __name__ == '__main__':
                 example['save_dir'] = os.path.join(args.save_root,dataset,group) 
                 example['name'] = file[:-4]
                 
-                print(example['point_labels'].shape, example['point_coords'].shape)
+                #print(example['point_labels'].shape, example['point_coords'].shape)
                 examples.append(example)
                 
                 if len(examples) !=args.batch and (i != len(args.datasets)-1 or j != len(groups)-1 or k != len(files)-1):
