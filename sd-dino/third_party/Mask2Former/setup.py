@@ -84,12 +84,15 @@ setup(
     python_requires=">=3.6",
     install_requires=[
         "detectron2 @ https://github.com/facebookresearch/detectron2/archive/v0.6.zip",
+        #f"detectron2 @ file://localhost/{os.getcwd()}/detectron2-0.6.zip",
         "scipy>=1.7.3",
         "boto3>=1.21.25",
         "hydra-core==1.1.1",
         # there is BC breaking in omegaconf 2.2.1
         # see: https://github.com/omry/omegaconf/issues/939
         "omegaconf==2.1.1",
+        # f"panopticapi @ file://localhost/{os.getcwd()}/panopticapi-master.zip",
+        # f"lvis @ file://localhost/{os.getcwd()}/lvis-api-master.zip",
         "panopticapi @ https://github.com/cocodataset/panopticapi/archive/master.zip",
         "lvis @ https://github.com/lvis-dataset/lvis-api/archive/master.zip",
     ],

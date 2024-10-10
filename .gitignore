@@ -2,3 +2,6 @@
 *.jpg
 *.png
 **/__pycache__
+*.zip
+*.egg-info
+*.ckpt
