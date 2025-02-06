@@ -59,8 +59,8 @@ Co-salient Object Detection (CoSOD) endeavors to replicate the human visual syst
     ```
     CUDA_VISIBLE_DEVICES=0 python evaluate.py --pred_root results --datasets CoSal2015
     ```
-    For more metrics, CoSOD evaluation toolbox [eval-co-sod](https://github.com/zzhanghub/eval-co-sod) is strongly recommended.
-    
+    For more metrics, CoSOD evaluation toolbox [eval-co-sod](https://github.com/zzhanghub/eval-co-sod) is strongly recommended. The results in this papaer can be download in [BaiduYun](https://pan.baidu.com/s/1P3Z6zP522cuFoU_eS_YbtQ)(fetch code: vfza).
+
  
  ## Citation
   ```
