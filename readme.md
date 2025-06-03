@@ -33,7 +33,7 @@ Co-salient Object Detection (CoSOD) endeavors to replicate the human visual syst
 
 2. **Datasets preparation**
 
-    Download all the test datasets from my [google-drive](https://drive.google.com/file/d/1knhq7KYhaX-fLH7VYrfJhjoKiBnK3KAM/view?usp=drive_link) or [BaiduYun](https://pan.baidu.com/s/19NLkiRQz3BPrUrk7M1dfZw) (fetch code: qwt8). The file directory structure is as follows:
+    Download all the test datasets from my [google-drive](https://drive.google.com/file/d/1JaKrngnYoRaEp1pk-6xStPPaHTh9XVMp/view?usp=drive_link) or [BaiduYun](https://pan.baidu.com/s/19NLkiRQz3BPrUrk7M1dfZw) (fetch code: qwt8). The file directory structure is as follows:
     ```
     +-- zs-cosod
     |   +-- data 
@@ -47,7 +47,7 @@ Co-salient Object Detection (CoSOD) endeavors to replicate the human visual syst
     ```
  3. **Test and evalutation**
  
-       Download the ckeckpoints of TSDN and SAM from [google-drive](https://drive.google.com/file/d/1YsvhQtqQyfjf-OMsA36uPefc2qAZnHxV/view?usp=drive_link) | [BaiduYun](https://pan.baidu.com/s/1mp8byGsBb3MpFdap-JEIig) (fetch code: be34). Place the **ckpt** folder in the main directory. Here is a command example of testing our model (test CoSal2015 with vit-base backbone).
+       Download the ckeckpoints of TSDN and SAM from [google-drive](https://drive.google.com/file/d/1zwPwtUhzAE-KcCbxjzoj8m8_GyXbR_gB/view?usp=drive_link) | [BaiduYun](https://pan.baidu.com/s/1mp8byGsBb3MpFdap-JEIig) (fetch code: be34). Place the **ckpt** folder in the main directory. Here is a command example of testing our model (test CoSal2015 with vit-base backbone).
     ```
     1. sh sd-dino/extract_feat.sh (Feature Extraction by StableDiffusion-1.5 and DINOv2-base)
     2. sh A2S-v2/inference_sod.sh (Saliency Map Generation by Unsupervised TSDN)
@@ -59,7 +59,7 @@ Co-salient Object Detection (CoSOD) endeavors to replicate the human visual syst
     ```
     CUDA_VISIBLE_DEVICES=0 python evaluate.py --pred_root results --datasets CoSal2015
     ```
-    For more metrics, CoSOD evaluation toolbox [eval-co-sod](https://github.com/zzhanghub/eval-co-sod) is strongly recommended. The results in this papaer can be download in [BaiduYun](https://pan.baidu.com/s/1P3Z6zP522cuFoU_eS_YbtQ)(fetch code: vfza).
+    For more metrics, CoSOD evaluation toolbox [eval-co-sod](https://github.com/zzhanghub/eval-co-sod) is strongly recommended. The results in this papaer can be download in [google-drive](https://drive.google.com/file/d/13oJRbxqU916W-0ZZNJ3w2odMLCiEAvXg/view?usp=drive_link) or [BaiduYun](https://pan.baidu.com/s/1P3Z6zP522cuFoU_eS_YbtQ)(fetch code: vfza).
 
  
  ## Citation
