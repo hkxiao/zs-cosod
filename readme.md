@@ -47,7 +47,7 @@ Co-salient Object Detection (CoSOD) endeavors to replicate the human visual syst
     ```
  3. **Test and evalutation**
  
-       Download the ckeckpoints of TSDN and SAM from [google-drive](https://drive.google.com/file/d/1zwPwtUhzAE-KcCbxjzoj8m8_GyXbR_gB/view?usp=drive_link) | [BaiduYun](https://pan.baidu.com/s/1mp8byGsBb3MpFdap-JEIig) (fetch code: be34). Place the **ckpt** folder in the main directory. Here is a command example of testing our model (test CoSal2015 with vit-base backbone).
+       Download the ckeckpoints of TSDN and SAM from [google-drive](https://drive.google.com/file/d/1y3A9buUdwHqBKNvPUG8LYsZhOBpa7Bh8/view?usp=drive_link) | [BaiduYun](https://pan.baidu.com/s/1mp8byGsBb3MpFdap-JEIig) (fetch code: be34). Place the **ckpt** folder in the main directory. Here is a command example of testing our model (test CoSal2015 with vit-base backbone).
     ```
     1. sh sd-dino/extract_feat.sh (Feature Extraction by StableDiffusion-1.5 and DINOv2-base)
     2. sh A2S-v2/inference_sod.sh (Saliency Map Generation by Unsupervised TSDN)
